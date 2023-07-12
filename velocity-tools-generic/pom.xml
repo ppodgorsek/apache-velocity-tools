@@ -23,15 +23,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.apache.velocity.tools</groupId>
+    <groupId>com.github.ppodgorsek.apache</groupId>
     <artifactId>velocity-tools-parent</artifactId>
-    <version>3.2-SNAPSHOT</version>
+    <version>3.3.0</version>
   </parent>
 
   <artifactId>velocity-tools-generic</artifactId>
 
-  <name>Apache Velocity Tools - Generic tools</name>
-  <description>Generic tools that can be used in any context.</description>
+  <name>Apache Velocity Tools - Generic tools (migrated to Jarkata)</name>
+  <description>
+    Generic tools that can be used in any context.
+    PLEASE NOTE: this is a temporary fork to unblock projects migrating to Jakarta,
+    but I won't continue maintaining it in the future as the Velocity team doesn't
+    understand the value of Jakarta. I strongly suggest you plan a switch to a more
+    modern template engine such as Thymeleaf.
+  </description>
 
   <dependencies>
     <dependency>
