@@ -19,243 +19,339 @@
     under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.apache.velocity</groupId>
-    <artifactId>velocity-master</artifactId>
-    <version>5</version>
-  </parent>
+	<parent>
+		<groupId>org.apache.velocity</groupId>
+		<artifactId>velocity-master</artifactId>
+		<version>5</version>
+	</parent>
 
-  <groupId>org.apache.velocity.tools</groupId>
-  <artifactId>velocity-tools-parent</artifactId>
-  <version>3.2-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<groupId>com.github.ppodgorsek.apache</groupId>
+	<artifactId>velocity-tools-parent</artifactId>
+	<version>3.3.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-  <name>VelocityTools</name>
-  <description>
+	<name>Apache Velocity Tools (migrated to Jarkata)</name>
+	<description>
     VelocityTools is an integrated collection of Velocity subprojects
     with the common goal of creating tools and infrastructure to speed and ease
     development of both web and non-web applications using the Velocity template
     engine.
-  </description>
-  <url>https://velocity.apache.org/tools/devel/</url>
-  <inceptionYear>2002</inceptionYear>
+    PLEASE NOTE: this is a temporary fork to unblock projects migrating to Jakarta,
+    but I won't continue maintaining it in the future as the Velocity team doesn't
+    understand the value of Jakarta. I strongly suggest you plan a switch to a more
+    modern template engine such as Thymeleaf.
+    </description>
+	<url>https://velocity.apache.org/tools/devel/</url>
+	<inceptionYear>2002</inceptionYear>
 
-  <properties>
-    <commons-digester3.version>3.2</commons-digester3.version>
-    <commons-lang3.version>3.10</commons-lang3.version>
-    <easymock.version>5.1.0</easymock.version>
-    <jakarta.el-api.version>5.0.1</jakarta.el-api.version>
-    <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
-    <jakarta.servlet.jsp-api.version>3.1.1</jakarta.servlet.jsp-api.version>
-    <junit.version>4.13.2</junit.version>
-    <velocity-engine.version>2.3</velocity-engine.version>
-    <slf4j.version>2.0.7</slf4j.version>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-  </properties>
+	<properties>
+		<commons-digester3.version>3.2</commons-digester3.version>
+		<commons-lang3.version>3.10</commons-lang3.version>
+		<easymock.version>5.1.0</easymock.version>
+		<jakarta.el-api.version>5.0.1</jakarta.el-api.version>
+		<jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+		<jakarta.servlet.jsp-api.version>3.1.1</jakarta.servlet.jsp-api.version>
+		<junit.version>4.13.2</junit.version>
+		<velocity-engine.version>2.3</velocity-engine.version>
+		<slf4j.version>2.0.7</slf4j.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 
-  <modules>
-    <module>velocity-tools-generic</module>
-    <module>velocity-tools-view</module>
-    <module>velocity-tools-view-jsp</module>
-    <module>velocity-tools-examples</module>
-  </modules>
+		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+		<maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+		<maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
+		<maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+	</properties>
 
-  <scm>
-    <connection>scm:git:https://gitbox.apache.org/repos/asf/velocity-tools.git</connection>
-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/velocity-tools.git</developerConnection>
-    <url>https://gitbox.apache.org/repos/asf?p=velocity-tools.git</url>
-    <tag>HEAD</tag>
-  </scm>
-  <issueManagement>
-    <system>jira</system>
-    <url>https://issues.apache.org/jira/browse/VELTOOLS</url>
-  </issueManagement>
+	<modules>
+		<module>velocity-tools-generic</module>
+		<module>velocity-tools-view</module>
+		<module>velocity-tools-view-jsp</module>
+		<module>velocity-tools-examples</module>
+	</modules>
 
-  <!-- This project is an effort by many people. If you feel that your name
-     should be in here and has been omitted in error, please open an issue with
-     the Velocity Tools Issue tracker. -->
-  <contributors>
-    <contributor>
-      <name>Chris Townsen</name>
-    </contributor>
-    <contributor>
-      <name>Craig R. McClanahan</name>
-    </contributor>
-    <contributor>
-      <name>Dave Bryson</name>
-    </contributor>
-    <contributor>
-      <name>David Graham</name>
-    </contributor>
-    <contributor>
-      <name>David Winterfeldt</name>
-    </contributor>
-    <contributor>
-      <name>Denis Bredelet</name>
-    </contributor>
-    <contributor>
-      <name>Dmitri Colebatch</name>
-    </contributor>
-    <contributor>
-      <name>Gabriel Sidler</name>
-    </contributor>
-    <contributor>
-      <name>Kent Johnson</name>
-    </contributor>
-    <contributor>
-      <name>Leon Messerschmidt</name>
-    </contributor>
-    <contributor>
-      <name>Mike Kienenberger</name>
-    </contributor>
-    <contributor>
-      <name>Oliver O'Halloran</name>
-    </contributor>
-    <contributor>
-      <name>S. Brett Sutton</name>
-    </contributor>
-    <contributor>
-      <name>Shinobu Kawai</name>
-    </contributor>
-    <contributor>
-      <name>Spencer Davis</name>
-    </contributor>
-    <contributor>
-      <name>Ted Husted</name>
-    </contributor>
-    <contributor>
-      <name>Tim Colson</name>
-    </contributor>
-    <contributor>
-      <name>Paul Podgorsek</name>
-    </contributor>
-  </contributors>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.apache.velocity</groupId>
-        <artifactId>velocity-engine-core</artifactId>
-        <version>${velocity-engine.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>${commons-lang3.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-digester3</artifactId>
-        <version>${commons-digester3.version}</version>
-        <!-- this dependency is unused, old, and easily conflits with others -->
-        <exclusions>
-          <exclusion>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>jakarta.el</groupId>
-        <artifactId>jakarta.el-api</artifactId>
-        <version>${jakarta.el-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>jakarta.servlet</groupId>
-        <artifactId>jakarta.servlet-api</artifactId>
-        <version>${jakarta.servlet-api.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>jakarta.servlet.jsp</groupId>
-        <artifactId>jakarta.servlet.jsp-api</artifactId>
-        <version>${jakarta.servlet.jsp-api.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.easymock</groupId>
-        <artifactId>easymock</artifactId>
-        <version>${easymock.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+	<scm>
+		<connection>scm:git:git@github.com:ppodgorsek/apache-velocity-tools.git</connection>
+		<developerConnection>scm:git:git@github.com:ppodgorsek/apache-velocity-tools.git</developerConnection>
+		<url>https://github.com/ppodgorsek/apache-velocity-tools</url>
+		<tag>HEAD</tag>
+	</scm>
 
-  <build>
-    <defaultGoal>install</defaultGoal>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <systemProperties>
-            <property>
-              <name>org.slf4j.simpleLogger.defaultLogLevel</name>
-              <value>trace</value>
-            </property>
-            <property>
-              <name>org.slf4j.simpleLogger.logFile</name>
-              <value>${project.build.directory}/velocity-tools.log</value>
-            </property>
-            <property>
-              <name>test.resources.dir</name>
-              <value>${project.build.testOutputDirectory}</value>
-            </property>
-          </systemProperties>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <showDeprecation>true</showDeprecation>
-          <showWarnings>true</showWarnings>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <excludePackageNames>org.apache.velocity.tools.examples</excludePackageNames>
-          <detectLinks />
-          <!-- full checking is left disabled
-          <doclint>html,missing,reference,syntax</doclint>
-          -->
-          <doclint>none</doclint>
-        </configuration>
-        <executions>
-          <execution>
-            <id>aggregate</id>
-            <goals>
-              <goal>aggregate</goal>
-            </goals>
-            <configuration>
-              <source>${maven.compiler.source}</source>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<issueManagement>
+		<system>jira</system>
+		<url>https://issues.apache.org/jira/browse/VELTOOLS</url>
+	</issueManagement>
+
+	<!-- This project is an effort by many people. If you feel that your name should be in here and has been omitted in error, 
+		please open an issue with the Velocity Tools Issue tracker. -->
+	<contributors>
+		<contributor>
+			<name>Chris Townsen</name>
+		</contributor>
+		<contributor>
+			<name>Craig R. McClanahan</name>
+		</contributor>
+		<contributor>
+			<name>Dave Bryson</name>
+		</contributor>
+		<contributor>
+			<name>David Graham</name>
+		</contributor>
+		<contributor>
+			<name>David Winterfeldt</name>
+		</contributor>
+		<contributor>
+			<name>Denis Bredelet</name>
+		</contributor>
+		<contributor>
+			<name>Dmitri Colebatch</name>
+		</contributor>
+		<contributor>
+			<name>Gabriel Sidler</name>
+		</contributor>
+		<contributor>
+			<name>Kent Johnson</name>
+		</contributor>
+		<contributor>
+			<name>Leon Messerschmidt</name>
+		</contributor>
+		<contributor>
+			<name>Mike Kienenberger</name>
+		</contributor>
+		<contributor>
+			<name>Oliver O'Halloran</name>
+		</contributor>
+		<contributor>
+			<name>S. Brett Sutton</name>
+		</contributor>
+		<contributor>
+			<name>Shinobu Kawai</name>
+		</contributor>
+		<contributor>
+			<name>Spencer Davis</name>
+		</contributor>
+		<contributor>
+			<name>Ted Husted</name>
+		</contributor>
+		<contributor>
+			<name>Tim Colson</name>
+		</contributor>
+		<contributor>
+			<name>Paul Podgorsek</name>
+		</contributor>
+	</contributors>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-engine-core</artifactId>
+				<version>${velocity-engine.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-digester3</artifactId>
+				<version>${commons-digester3.version}</version>
+				<!-- this dependency is unused, old, and easily conflits with others -->
+				<exclusions>
+					<exclusion>
+						<groupId>cglib</groupId>
+						<artifactId>cglib</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.el</groupId>
+				<artifactId>jakarta.el-api</artifactId>
+				<version>${jakarta.el-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.servlet</groupId>
+				<artifactId>jakarta.servlet-api</artifactId>
+				<version>${jakarta.servlet-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.servlet.jsp</groupId>
+				<artifactId>jakarta.servlet.jsp-api</artifactId>
+				<version>${jakarta.servlet.jsp-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymock</artifactId>
+				<version>${easymock.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+						<encoding>UTF-8</encoding>
+						<showWarnings>true</showWarnings>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<excludePackageNames>org.apache.velocity.tools.examples</excludePackageNames>
+					<detectLinks />
+					<!-- full checking is left disabled <doclint>html,missing,reference,syntax</doclint> -->
+					<doclint>none</doclint>
+				</configuration>
+				<executions>
+					<execution>
+						<id>aggregate</id>
+						<goals>
+							<goal>aggregate</goal>
+						</goals>
+						<configuration>
+							<source>${maven.compiler.source}</source>
+						</configuration>
+					</execution>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<systemProperties>
+						<property>
+							<name>org.slf4j.simpleLogger.defaultLogLevel</name>
+							<value>trace</value>
+						</property>
+						<property>
+							<name>org.slf4j.simpleLogger.logFile</name>
+							<value>${project.build.directory}/velocity-tools.log</value>
+						</property>
+						<property>
+							<name>test.resources.dir</name>
+							<value>${project.build.testOutputDirectory}</value>
+						</property>
+					</systemProperties>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
